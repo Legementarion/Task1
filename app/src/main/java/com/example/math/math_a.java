@@ -1,7 +1,7 @@
 package com.example.math;
 
 
-public class math_a {
+public abstract class math_a {
 
     public int pow(int a){
         a=a*a;
@@ -9,11 +9,21 @@ public class math_a {
     }
 
     public int pow(int a, int b){
-        while(b>0){
-            a=a*a;
+        int buff =1;
+        while(b>1){
+            buff=buff*a;
             b--;
         }
-        return a;
+        return buff;
+    }
+
+    public double pow(double a, int b){
+        double buff =1;
+        while(b>0){
+            buff=buff*a;
+            b--;
+        }
+        return buff;
     }
 
     public int sqrt(int a){
@@ -46,19 +56,56 @@ public class math_a {
         int i=0; // итерации
         while ((b*b)>a){
                 b = b/2;
+            System.out.println(b+" sqrtAf ");
         i++;
         }
-        while((b*b)<=a) {
-            b = b + 0.01;
+        while((b*b)<a) {
             i++;
+            b = b + 0.1;
         }
-
+        while((b*b)>a) {
+            i++;
+            b = b - 0.01;
+        }
         System.out.println(i+" sqrtAf iteration");
         return b;
     }
 
+    public double sqrtKub(int a){
+        double b=a/3;
+        int i=0; // итерации
+
+        while ((b*b*b)>a){
+            b = b/3;
+            i++;
+        }
+        while((b*b*b)<=a) {
+            b = b + 0.1;
+            i++;
+        }
+
+        System.out.println(i+" sqrtA iteration");
+
+        return b;
+    }
+
+    public double sq(int a, int n){
+        double b = a/n;
+        int i=0; // итерации
+        while ((pow(b,n))>a){
+            b = b/n;
+            i++;
+        }
+        while(pow(b,n)<a){
+            b = b + 0.01;
+            i++;
+        }
+        System.out.println(i+" sqrtA iteration");
+        return (int)b;
+    }
 
 
+    abstract double sq(int a, int n, int p);
 }
 
 
