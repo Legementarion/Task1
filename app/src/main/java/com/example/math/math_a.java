@@ -5,22 +5,32 @@ package com.example.math;
  */
 public class math_a {
 
-            public int pow(int a){
-                    a=a*a;
-                return a;
-            }
+    public int pow(int a){
+        a=a*a;
+        return a;
+    }
 
-            public int sqrt(int a){
-                int b;
-                b=a/2;
-                int i =0;
-                while((b*b)>a){
-                        b--;
-                    i++;
-                }
-                System.out.println(i +" sqrt iteration");
-                return b;
-            }
+    public int pow(int a, int b){
+        while(b>0){
+            a=a*a;
+            b--;
+        }
+        return a;
+    }
+
+
+
+    public int sqrt(int a){
+        int b;
+        b=a/2;
+        int i =0;
+        while((b*b)>a){
+            b--;
+            i++;
+        }
+        System.out.println(i +" sqrt iteration");
+        return b;
+    }
 
     public int sqrtA(int a){
         int b=a/2;
