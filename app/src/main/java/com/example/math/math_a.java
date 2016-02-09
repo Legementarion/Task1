@@ -1,8 +1,6 @@
 package com.example.math;
 
-/**
- * Created by Ольга on 08.02.2016.
- */
+
 public class math_a {
 
     public int pow(int a){
@@ -17,8 +15,6 @@ public class math_a {
         }
         return a;
     }
-
-
 
     public int sqrt(int a){
         int b;
@@ -48,23 +44,20 @@ public class math_a {
     public double sqrtAf(double a){
         double b=a/2;
         int i=0; // итерации
-        Math.round(b);
-        while ((b*b)!=a){
-            if ((b*b)>a){
+        while ((b*b)>a){
                 b = b/2;
-            }else if ((b*b)<=a){
-                System.out.println(b+" -b");
-                b=b+0.01;
-            }
-
         i++;
         }
-
-
+        while((b*b)<=a) {
+            b = b + 0.01;
+            i++;
+        }
 
         System.out.println(i+" sqrtAf iteration");
         return b;
     }
+
+
 
 }
 
