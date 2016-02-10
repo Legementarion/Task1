@@ -1,7 +1,7 @@
 package com.example.math;
 
 
-public abstract class math_a {
+public class math_a {
 
     public int pow(int a){
         a=a*a;
@@ -103,9 +103,6 @@ public abstract class math_a {
         System.out.println(i+" sqrtA iteration");
         return (int)b;
     }
-
-
-    abstract double sq(int a, int n, int p);
 }
 
 

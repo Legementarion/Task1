@@ -5,7 +5,7 @@ package com.example.math;
 public class math_a_p extends math_a {
     int buff;
     @Override
-    public double sq(int a, int n, int p){
+    public double sq(int a, int n){
         double b = a/n;
         String result;
         int i=0; // итерации
@@ -22,7 +22,7 @@ public class math_a_p extends math_a {
         System.out.println(i+" sqrtA iteration");
         result = Double.toString(b);
         System.out.println(result+" result");
-        result = result.substring(0, p);
+        result = result.substring(0, 5);
         b = Double.valueOf(result);
         return b;
     }
