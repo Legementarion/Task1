@@ -1,7 +1,7 @@
 package com.example.math.generation;
 
 /**
- * Created by ĞĞ»ÑŒĞ³Ğ° on 10.02.2016.
+ * Created by Îëüãà on 10.02.2016.
  */
 public class MyData {
     public static Character massA[] = {0x0430,0x0435,0x0438,0x0439,0x043E,0x0443,0x044D,0x044E,0x044F};
