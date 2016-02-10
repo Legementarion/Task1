@@ -4,8 +4,7 @@ package com.example.math;
 import com.example.math.Matrix.General;
 import com.example.math.generation.SecondName;
 
-import java.net.MalformedURLException;
-import java.net.URL;
+
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -21,6 +20,8 @@ public class Main {
 
 
 
+
+
 //        buf.append(in.nextLine());
 
 //        try {
@@ -30,11 +31,15 @@ public class Main {
 //            e.printStackTrace();
 //        }
 
+        Regex regex = new Regex();
+        System.out.println(regex.firmName("Lama PaPa"));
+        System.out.println(regex.timeApi());
+
         SecondName secondName = new SecondName();
 //        secondName.start();
 
         General general = new General();
-        general.go();
+//        general.go();
 
 
             try {
@@ -49,9 +54,6 @@ public class Main {
         math_a_p a = new math_a_p();
         Conv c = new Conv();
 
-        Pattern pattern = Pattern.compile("^[a-z-]{2,4}$");
-        Matcher matcher = pattern.matcher("aaaa");
-        System.out.println(matcher.matches());
 
 //          System.out.println(c.decToHex(3276));
 //          System.out.println(c.bitToHex("110011001100"));
