@@ -9,4 +9,6 @@ public class General {
     public void go(){
         System.out.println(g.start());
     }
+
+
 }
