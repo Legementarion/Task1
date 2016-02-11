@@ -14,8 +14,8 @@ public class Main {
     public static void main(String args[]){
 
         Scanner in = new Scanner(System.in);
-        int buff=0;
-        int step = 0;
+        int buff=624;
+        int step = 4;
         StringBuilder buf = new StringBuilder();
 
 
@@ -32,8 +32,8 @@ public class Main {
 //        }
 
         Regex regex = new Regex();
-        System.out.println(regex.firmName("Lama PaPa"));
-        System.out.println(regex.timeApi());
+//        System.out.println(regex.firmName("Lama PaPa"));
+//        System.out.println(regex.timeApi());
 
         SecondName secondName = new SecondName();
 //        secondName.start();
@@ -64,7 +64,7 @@ public class Main {
 //        System.out.println(a.sqrtA(buff));
 //        System.out.println(a.sqrtAf(buff));
 //        System.out.println(a.sqrtKub(buff));
-//        System.out.println(a.sq(buff, step, 5));
+        System.out.println(a.sq(buff, step, 4+2));
 
 //            int n =10;
 //            while(true) {

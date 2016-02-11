@@ -4,25 +4,31 @@ package com.example.math;
 
 public class math_a_p extends math_a {
     int buff;
-    @Override
-    public double sq(int a, int n){
-        double b = a/n;
+
+    public double sq(int a, int n, int p){
+        double b = a/2;
         String result;
         int i=0; // итерации
         while ((pow(b,n))>a){
-            b = b/n;
+            b = b/2;
             i++;
-            System.out.println(pow(b,n)+" -pow");
-            System.out.println(b+" -b");
         }
-        while(pow(b,n)<a){
-            b = b + 0.01;
-            i++;
+        double buf = 0.1;
+        for(int j=0; j<p; j++) {
+            while (pow(b, n) <= a) {
+                b = b + buf;
+                i++;
+            }
+            buf = buf / (10);
+            while (pow(b, n) > a) {
+                b = b - buf;
+                i++;
+            }
         }
         System.out.println(i+" sqrtA iteration");
         result = Double.toString(b);
         System.out.println(result+" result");
-        result = result.substring(0, 5);
+        result = result.substring(0, p);
         b = Double.valueOf(result);
         return b;
     }

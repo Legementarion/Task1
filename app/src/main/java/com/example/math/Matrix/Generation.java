@@ -1,13 +1,18 @@
 package com.example.math.Matrix;
 
 
+
+
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
+
 public class Generation {
 
     public int[][][] start(){
         int n = 5; // размер массива
         int[][][] mass = new int[n][n][n];
-
-
 
 
         for (int x=0; x<n; x++) {
