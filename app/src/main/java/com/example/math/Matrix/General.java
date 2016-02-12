@@ -7,7 +7,7 @@ public class General {
     Generation g = new Generation();
 
     public void go(){
-        System.out.println(g.start());
+        g.start();
     }
 
 

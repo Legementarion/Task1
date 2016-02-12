@@ -3,10 +3,7 @@ package com.example.math.Matrix;
 
 
 
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
+import java.util.*;
 
 public class Generation {
 
@@ -14,7 +11,23 @@ public class Generation {
         int n = 5; // размер массива
         int[][][] mass = new int[n][n][n];
 
+        List<List<List<Integer>>> list = new ArrayList<>();
 
+        System.out.println("List array");
+        for (int x=0; x<n; x++) {
+            list.add(new ArrayList<List<Integer>>());
+            for (int y = 0; y < n; y++) {
+                list.get(x).add(new ArrayList<Integer>());
+                for (int z = 0; z < n; z++) {
+                    list.get(x).get(y).add((int) (10+Math.random()*100));
+                    System.out.print(list.get(x).get(y).get(z) + " ");
+                }
+                System.out.println("\n");
+            }
+            System.out.println("-----------");
+        }
+
+        System.out.println("int[][][] array");
         for (int x=0; x<n; x++) {
             for (int y = 0; y < n; y++) {
                 for (int z = 0; z < n; z++) {
@@ -29,7 +42,7 @@ public class Generation {
                 for (int z = 0; z < n; z++) {
                     System.out.print(mass[x][y][z] + " ");
                 }
-            System.out.println("");
+            System.out.println("\n");
             }
         System.out.println("-----------------");
         }

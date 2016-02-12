@@ -19,18 +19,15 @@ public class Main {
         StringBuilder buf = new StringBuilder();
 
 
+        RestJson restJson = new RestJson();
+
+//        restJson.weather();
 
 
 
 //        buf.append(in.nextLine());
 
-//        try {
-//            URL url = new URL("http//timeapi.org/now");
-
-//        } catch (MalformedURLException e) {
-//            e.printStackTrace();
-//        }
-
+//
         Regex regex = new Regex();
 //        System.out.println(regex.firmName("Lama PaPa"));
 //        System.out.println(regex.timeApi());
@@ -39,7 +36,7 @@ public class Main {
 //        secondName.start();
 
         General general = new General();
-//        general.go();
+        general.go();
 
 
             try {
