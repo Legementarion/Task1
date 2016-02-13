@@ -1,6 +1,7 @@
 package com.example.math;
 
 
+import com.example.math.DataBase.MainForDB;
 import com.example.math.Matrix.General;
 import com.example.math.generation.SecondName;
 
@@ -24,6 +25,11 @@ public class Main {
 //        restJson.weather();
 
 
+        DB_test db = new DB_test();
+//        db.go();
+
+        MainForDB dbTask = new MainForDB();
+        dbTask.start();
 
 //        buf.append(in.nextLine());
 
@@ -36,7 +42,7 @@ public class Main {
 //        secondName.start();
 
         General general = new General();
-        general.go();
+//        general.go();
 
 
             try {
@@ -61,7 +67,7 @@ public class Main {
 //        System.out.println(a.sqrtA(buff));
 //        System.out.println(a.sqrtAf(buff));
 //        System.out.println(a.sqrtKub(buff));
-        System.out.println(a.sq(buff, step, 4+2));
+//        System.out.println(a.sq(buff, step, 4+2));
 
 //            int n =10;
 //            while(true) {
