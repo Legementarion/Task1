@@ -3,9 +3,12 @@ package com.example.math;
 
 import com.example.math.DataBase.MainForDB;
 import com.example.math.Matrix.General;
+import com.example.math.examPo.GenMass;
+import com.example.math.examPo.Math_stat;
 import com.example.math.generation.SecondName;
 
 
+import java.lang.reflect.Array;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -13,11 +16,12 @@ import java.util.regex.Pattern;
 public class Main {
 
     public static void main(String args[]){
+        Object obj = null;
 
         Scanner in = new Scanner(System.in);
-        int buff=624;
-        int step = 4;
-        StringBuilder buf = new StringBuilder();
+        int buff=0;
+        int step = 5;
+        StringBuilder buf = new StringBuilder("");
 
 
         RestJson restJson = new RestJson();
@@ -46,13 +50,39 @@ public class Main {
 
 
             try {
-//                buff = in.nextInt();
-//                System.out.println("input stepen");
-//                step = in.nextInt();
+//                System.out.println("input type");
+//                buf.append(in.nextLine());
+//                System.out.println("input size");
+                step = in.nextInt();
             } catch (InputMismatchException ex) {
                 ex.printStackTrace();
                 System.out.println(" -only number!!");
             }
+
+
+        GenMass result = new GenMass();
+        result.genByType(step);
+        /*
+        if(!(buf.equals("")&&(step!=0))){
+            System.out.println(" -method1");
+            result.genByType(buf.toString().toLowerCase(),step);
+        } else if((buf.equals("")&&(step!=0))){
+            System.out.println(" -method2");
+            result.genByType(step);
+        } else if(!(buf.equals("")&&(step==0))) {
+            System.out.println(" -method3");
+            result.genByType(buf.toString().toLowerCase());
+        } else if ((buf.equals(""))&&(step==0)){
+            System.out.println(" -method4");
+            result.genByType();
+        }
+        */
+        System.out.println("object created");
+        obj = result.getObject();
+
+        System.out.println(result.getTypeS());
+        System.out.print(Math_stat.compare(obj, result.getTypeS()));
+
 
         math_a_p a = new math_a_p();
         Conv c = new Conv();

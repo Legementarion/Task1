@@ -3,13 +3,22 @@ package com.example.math.DataBase;
 import java.sql.*;
 
 /**
- * Created by Lego on 12.02.2016.
+ * Class for db connection and edit information
+ * @author Lego on 12.02.2016.
+ * @version 1.2
  */
 public class Ships_db {
+
+    /**   value save result of query from db   */
     public static ResultSet resSet;
+
+    /** statement for db connection     */
     public Connection connect = null;
+
+    /** statement for executing query      */
     public Statement stmt = null;
 
+    /**  create connection with db by default     */
     Ships_db(){
         try {
             Class.forName("org.sqlite.JDBC");
@@ -24,6 +33,10 @@ public class Ships_db {
         System.out.println("Connection successful");
     }
 
+    /**
+     * Create new database
+     * @param name - name of new database
+     */
     public void createDB(String name){
         try {
             connect = DriverManager.getConnection("jdbc:sqlite://C:\\Users\\Lego\\Desktop\\SQLiteStudio\\"+name+".db");
@@ -33,6 +46,9 @@ public class Ships_db {
         System.out.println("Data Base " + name + " was created");
     }
 
+    /**
+     * create table with colomn and type of them
+     */
     public void createTable(){
         try {
             stmt = connect.createStatement();
@@ -47,6 +63,9 @@ public class Ships_db {
 
     }
 
+    /**
+     * method of inserting date in to table
+     */
     public void insertIntoTable(){
         try {
             //insert in to Classes
@@ -115,11 +134,64 @@ public class Ships_db {
         System.out.println("insert complete");
     }
 
-
-    public void deleteDB(String str){
+    /**
+     * create query whos delete lines whit ship upwards 1943
+     */
+    public void deleteDB(){
         try {
-            stmt.execute("DELETE FROM Ships.");
+            stmt.execute("DELETE FROM Battles " +
+                    " WHERE date>'1943-12-31'");
+            stmt.execute("DELETE FROM Ships WHERE name IN(SELECT ship FROM Outcomes WHERE Outcomes.battle NOT IN (SELECT name FROM Battles))");
+            stmt.execute("DELETE FROM outcomes WHERE battle NOT IN (SELECT name FROM battles)");
+            stmt.execute("DELETE FROM classes WHERE class NOT IN (SELECT class FROM ships)");
 
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * method for output information from database
+     */
+    public void printDB(){
+        try {
+            System.out.println(" --- Table Classes --- ");
+            resSet = stmt.executeQuery("SELECT * FROM Classes");
+            while(resSet.next()){
+                String a = resSet.getString("class");
+                String b = resSet.getString("type");
+                String c = resSet.getString("country");
+                int d = resSet.getInt("numGuns");
+                float e = resSet.getFloat("bore");
+                int f = resSet.getInt("displacement");
+                System.out.println(a + " " + b+" " + c +" "+d+" "+e + " "+ f);
+            }
+
+            System.out.println(" --- Table Ships --- ");
+            resSet = stmt.executeQuery("SELECT * FROM Ships");
+            while(resSet.next()){
+                String a = resSet.getString("name");
+                String b = resSet.getString("class");
+                int c = resSet.getInt("launched");
+                System.out.println(a + " " + b+" " + c);
+            }
+
+            System.out.println(" --- Table Outcomes --- ");
+            resSet = stmt.executeQuery("SELECT * FROM Outcomes");
+            while(resSet.next()){
+                String a = resSet.getString("ship");
+                String b = resSet.getString("battle");
+                String c = resSet.getString("result");
+                System.out.println(a + " " + b+" " + c);
+            }
+
+            System.out.println(" --- Table Battles --- ");
+            resSet = stmt.executeQuery("SELECT * FROM Battles");
+            while(resSet.next()){
+                String a = resSet.getString("name");
+                Date b = resSet.getDate("date");
+                System.out.println(a + " " + b+" ");
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }

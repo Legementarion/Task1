@@ -46,7 +46,7 @@ public class GenMass {
 
     public void genByType(int size){
         String[] type = {"byte","char","short","int","String","float"};
-        int num = (int) (Math.random()*7);
+        int num = (int) (Math.random()*6);
         genByType(type[num],size);
     }
 
